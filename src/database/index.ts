@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let cachedDB = null;
 
-export const db = async() => {
+export async function connectToDB() {
   if (!cachedDB) {
     await mongoose.connect(process.env.MONGODB_URI as string);  
     cachedDB = mongoose.connection
@@ -12,6 +12,4 @@ export const db = async() => {
       console.log("Connected to DB");
     });
   }
-  
-  return cachedDB;
 }

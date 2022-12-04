@@ -6,6 +6,7 @@ provider:
   runtime: nodejs14.x
   region: sa-east-1
   stage: api
+  useDotenv: true
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     NODE_OPTIONS: --enable-source-maps --stack-trace-limit=1000
@@ -41,3 +42,11 @@ functions:
       - http:
           path: /hello/{name}
           method: GET
+
+  create-todo:
+    handler: src/functions/create-todo.handler
+    memorySize: 128
+    events:
+      - http:
+          path: /create-todo
+          method: POST
