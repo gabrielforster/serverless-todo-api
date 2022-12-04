@@ -11,7 +11,8 @@
     "node": ">=14.15.0"
   },
   "dependencies": {
-    "deep-object-js": "^1.1.1"
+    "deep-object-js": "^1.1.1",
+    "mongoose": "^6.7.5"
   },
   "devDependencies": {
     "@serverless/typescript": "^3.0.0",
