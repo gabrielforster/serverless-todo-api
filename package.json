@@ -5,12 +5,13 @@
   "main": "serverless.yml",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "serverless offline start --skipCacheInvalidation"
+    "dev": "serverless offline start"
   },
   "engines": {
     "node": ">=14.15.0"
   },
   "dependencies": {
+    "adapcon-utils-js": "^0.11.7",
     "deep-object-js": "^1.1.1",
     "mongoose": "^6.7.5",
     "serverless-dotenv-plugin": "^4.0.2"
@@ -24,6 +25,7 @@
     "serverless": "^3.0.0",
     "serverless-esbuild": "^1.23.3",
     "serverless-offline": "^11.6.0",
+    "serverless-offline-watcher": "^1.0.0",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3"

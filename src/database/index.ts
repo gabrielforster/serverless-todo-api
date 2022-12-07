@@ -9,7 +9,7 @@ export async function connectToDB() {
   
     cachedDB.on("error", console.error.bind(console, "connection error:"));
     cachedDB.once("open", () => {
-      console.log("Connected to DB");
+      return cachedDB
     });
   }
 }

@@ -1,12 +1,12 @@
 service: serverless-todo
 frameworkVersion: '3'
+useDotenv: true
 
 provider:
   name: aws
   runtime: nodejs14.x
   region: sa-east-1
   stage: api
-  useDotenv: true
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     NODE_OPTIONS: --enable-source-maps --stack-trace-limit=1000
@@ -15,12 +15,15 @@ provider:
 plugins:
   - serverless-esbuild
   - serverless-offline
-  - serverless-dotenv-plugin
+  - serverless-offline-watcher
 
 package:
   individually: true
 
 custom:
+  serverless-offline-watcher:
+    - path: src/functions/**.ts
+      command: echo "Files changed!"
   esbuild:
     bundle: true
     minify: true
@@ -50,3 +53,11 @@ functions:
       - http:
           path: /create-todo
           method: POST
+
+  get-todo:
+    handler: src/functions/find-todo.handler
+    memorySize: 128
+    events:
+      - http:
+          path: /get-todo/{todoId}
+          method: GET
