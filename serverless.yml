@@ -61,3 +61,11 @@ functions:
       - http:
           path: /get-todo/{todoId}
           method: GET
+  
+  get-all-todos:
+    handler: src/functions/find-all-todos.handler
+    memorySize: 128
+    events:
+      - http:
+          path: /get-all-todos
+          method: GET

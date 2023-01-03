@@ -1,5 +1,4 @@
 import { APIGatewayEvent, APIGatewayProxyResult } from "aws-lambda";
-import { ObjectId } from "mongoose"
 
 import { connectToDB } from "../database";
 import { Todo } from "../database/model/todo";
